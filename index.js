@@ -8,22 +8,13 @@ require('dotenv').config();
 const app = express()
 app.use(cors());
 
-
-const cameras = require('./routes/cameras')
 const port = 4000
-
-
 
 app.use(bodyParser.urlencoded({
   extended: true
 }))
 
-// app.use('/cameras', cameras)
-
-
-
 mongoose.connect(process.env.MONGOURI, {useNewUrlParser: true, useUnifiedTopology: true});
-
 
 // router.get('/', async(req, res) => {
 //   const cameras = await pool.query(`
@@ -48,7 +39,6 @@ app.get('/cameras', async(req, res) => {
   })
 })
 
-module.exports = router
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
