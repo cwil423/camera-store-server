@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express()
 app.use(cors());
 
-const port = 4000
+const port = process.env.PORT
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -35,6 +35,7 @@ const Camera = mongoose.model('camera', cameraSchema, 'cameras');
 app.get('/cameras', async(req, res) => {
   Camera.find(function (err, cameras) {
     if (err) return console.error(err);
+    console.log(cameras)
     res.send(cameras);
   })
 })
