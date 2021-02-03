@@ -9,14 +9,19 @@ const cameras = require('./routes/cameras')
 
 const port = 4000
 
+// Add headers
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://ecommerce-cameras.netlify.app/Cameras/');
+  next();
+});
 
 
 app.get('/', (req, res) => {
  
 });
 
-// app.use(cors)
-app.use(cors());
+
+// app.use(cors());
 app.use(bodyParser.urlencoded({
   extended: true
 }))
