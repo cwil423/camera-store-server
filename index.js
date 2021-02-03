@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 });
 
 // app.use(cors)
-app.use(cors({ origin: 'http://localhost:8000', credentials: true }));
+app.use(cors({ origin: 'https://ecommerce-cameras.netlify.app/', credentials: true }));
 app.use(bodyParser.urlencoded({
   extended: true
 }))
