@@ -6,7 +6,9 @@ require('dotenv').config();
 
 
 const app = express()
-app.use(cors());
+app.use(cors({
+  origin: "https://inspiring-cray-1b1890.netlify.app"
+}));
 
 const port = process.env.PORT
 
@@ -32,7 +34,7 @@ const cameraSchema = new mongoose.Schema({
 
 const Camera = mongoose.model('camera', cameraSchema, 'cameras');
 
-app.get('/cameras', async(req, res) => {
+app.get('/cameras', (req, res) => {
   Camera.find(function (err, cameras) {
     if (err) return console.error(err);
     console.log(cameras)
