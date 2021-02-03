@@ -1,4 +1,5 @@
 const express = require('express')
+
 const cors = require('cors')
 const bodyParser = require('body-parser')
 require('dotenv').config();
@@ -7,6 +8,12 @@ const cameras = require('./routes/cameras')
 
 
 const port = 4000
+
+
+
+app.get('/', (req, res) => {
+ 
+});
 
 // app.use(cors)
 app.use(cors({ origin: 'http://localhost:8000', credentials: true }));
